@@ -1,0 +1,5 @@
+rootProject.name = 'WarnfieldM'
+
+include ':app'
+include ':react-native-geo-fencing'
+project(':react-native-geo-fencing').projectDir = new File(settingsDir, '../node_modules/react-native-geo-fencing/android')

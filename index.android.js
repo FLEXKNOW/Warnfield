@@ -1,0 +1,73 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import GeoFencing from 'react-native-geo-fencing';
+
+class WarnfieldM extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      lat:0,
+      lng:0,
+    }
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+   (position) => {
+     let point = {
+       lat: position.coords.latitude,
+       lng: position.coords.longitude
+     };
+
+     this.setState({lat:point.lat, lng:point.lng})
+  })
+}
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Double tap R on your keyboard to reload,{'\n'}
+          lat:{this.state.lat} lng: {this.state.lng}
+        </Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('WarnfieldM', () => WarnfieldM);
