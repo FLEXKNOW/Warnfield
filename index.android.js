@@ -163,7 +163,7 @@ _getLoc(){
 _stopLoc(){
   this.setState({
     calculations:0,
-    track:1})
+    track:0})
   BackgroundGeolocation.stop(() => {
       console.log('[DEBUG] BackgroundGeolocation stop successfully');    
     });
