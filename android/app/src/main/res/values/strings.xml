@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WarnfieldM</string>
+    <string name="account_type">com.yourcompany.account</string>
+    <string name="content_authority">com.yourcompany.authority</string>
 </resources>
